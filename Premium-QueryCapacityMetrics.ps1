@@ -47,7 +47,11 @@ while($startDate -le $endDate)
 {
     Write-Host "Getting data for '$startDate'"
 
-    $query = "EVALUATE 
+    $query = "
+    DEFINE
+    MPARAMETER CapacityID =
+        ""$capacityId""
+    EVALUATE 
         SUMMARIZECOLUMNS(
           'Artifacts'[Artifact]
           , 'Operation Names'[OperationName]
